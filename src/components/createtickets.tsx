@@ -2,25 +2,26 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Todo } from "../types";
 import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { addTask } from "../actions";
 
 export const Createtickets: React.FC = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const handleLink = (path: string) => history.push(path);
   const [task, setTask] = useState("");
   const [detail, setDetail] = useState("");
   const [person, setPerson] = useState("");
   const [deadline, setDeadline] = useState("");
   const addTodo = () => {
-    const newTodo: Todo = {
-      id: uuidv4(),
-      task: task,
-      detail: detail,
-      person: person,
-      deadline: deadline,
-      done: false,
-    };
+    const id: string = uuidv4();
+    dispatch(addTask(id, task, detail, person, deadline));
     setTask("");
     setDetail("");
     setPerson("");
     setDeadline("");
+    handleLink("/");
   };
   return (
     <React.Fragment>

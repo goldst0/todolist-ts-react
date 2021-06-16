@@ -12,7 +12,7 @@ const initialState = {
       complete: false,
     },
     {
-      id: 2,
+      id: "2",
       task: "Strawberry",
       detail: "good",
       person: "angel",
@@ -20,7 +20,7 @@ const initialState = {
       complete: false,
     },
     {
-      id: 3,
+      id: "3",
       task: "Pineapple",
       detail: "better",
       person: "badman",

@@ -8,7 +8,7 @@ import { Headers } from "./components/header";
 export const Path = {
   todolist: "/",
   Createtickets: "/createtickets",
-  Detailtickets: "/detailtickets",
+  Detailtickets: "/detailtickets/:id",
 };
 
 const App: React.FC = () => {

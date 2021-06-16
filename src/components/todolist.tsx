@@ -7,7 +7,6 @@ import { RootState } from "../reducers/todo";
 
 export const Todolist: React.FC = () => {
   const lists = useSelector((state: RootState) => state.todo.lists);
-  console.log(lists);
   return (
     <React.Fragment>
       <Wrapper>
@@ -17,7 +16,7 @@ export const Todolist: React.FC = () => {
           {lists.map((todo: any) => {
             return (
               <li key={todo.id}>
-                <Link to={Path.Detailtickets}>{todo.task}</Link>
+                <Link to={`detailtickets/${todo.id}`}>{todo.task}</Link>
                 &emsp;<button>Done</button>
                 <button>Delete</button>
               </li>
@@ -33,3 +32,7 @@ const Wrapper = styled.div`
   display: block;
   margin: 0 auto;
 `;
+
+export type RootState2 = {
+  id: string;
+};
