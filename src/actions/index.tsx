@@ -24,3 +24,10 @@ export const doneTask = (index: any) => ({
   type: DONETASK,
   index: index,
 });
+
+export const REMOVETASK = "removeTask";
+
+export const removeTask = (index: any) => ({
+  type: REMOVETASK,
+  index: index,
+});

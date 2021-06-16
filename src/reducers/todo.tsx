@@ -1,4 +1,4 @@
-import { ADDTASK, DONETASK } from "../actions";
+import { ADDTASK, DONETASK, REMOVETASK } from "../actions";
 import { Todo } from "../types";
 
 const initialState = {
@@ -36,9 +36,12 @@ export default (state = initialState, action: any) => {
       return { lists: [...state.lists, action.todo] };
     case DONETASK:
       const doneTasks = [...state.lists];
-      doneTasks[action.index].done = true;
-      //   !doneTasks[action.index].done;
+      doneTasks[action.index].done = !doneTasks[action.index].done;
       return { lists: doneTasks };
+    case REMOVETASK:
+      const removeTasks = [...state.lists];
+      removeTasks.splice(action.index, 1);
+      return { lists: removeTasks };
     default:
       return state;
   }

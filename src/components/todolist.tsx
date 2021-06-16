@@ -5,7 +5,7 @@ import { Path } from "../App";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { RootState } from "../reducers/todo";
-import { doneTask } from "../actions";
+import { doneTask, removeTask } from "../actions";
 
 export const Todolist: React.FC = () => {
   const lists = useSelector((state: RootState) => state.todo.lists);
@@ -13,6 +13,9 @@ export const Todolist: React.FC = () => {
   //   console.log(lists);
   const doneTodo = (index: any) => {
     dispatch(doneTask(index));
+  };
+  const removeTodo = (index: any) => {
+    dispatch(removeTask(index));
   };
   return (
     <React.Fragment>
@@ -34,7 +37,7 @@ export const Todolist: React.FC = () => {
                 )}
                 &emsp;
                 <button onClick={() => doneTodo(index)}>Done</button>
-                <button>Delete</button>
+                <button onClick={() => removeTodo(index)}>Delete</button>
               </li>
             );
           })}
