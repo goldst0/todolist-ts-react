@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
+import { Todolist } from "./components/todolist";
+import { Createtickets } from "./components/createtickets";
+import { Headers } from "./components/header";
 
-function App() {
+export const Path = {
+  todolist: "/",
+  Createtickets: "/createtickets",
+};
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Headers>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path={Path.todolist} component={Todolist}></Route>
+          <Route
+            exact
+            path={Path.Createtickets}
+            component={Createtickets}
+          ></Route>
+          <Redirect to={Path.todolist} />
+        </Switch>
+      </BrowserRouter>
+    </Headers>
   );
-}
+};
 
 export default App;
