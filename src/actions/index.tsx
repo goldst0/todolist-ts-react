@@ -17,3 +17,10 @@ export const addTask = (
     done: false,
   },
 });
+
+export const DONETASK = "doneTask";
+
+export const doneTask = (index: any) => ({
+  type: DONETASK,
+  index: index,
+});
