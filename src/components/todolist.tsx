@@ -10,7 +10,11 @@ export const Todolist: React.FC = () => {
         <h2>Todo List</h2>
         <Link to={Path.Createtickets}>Create Tickets</Link>
         <ol>
-          <li>tomato</li>
+          <li>
+            <Link to={Path.Detailtickets}>tomato</Link>
+            &emsp;<button>Done</button>
+            <button>Delete</button>
+          </li>
         </ol>
       </Wrapper>
     </React.Fragment>

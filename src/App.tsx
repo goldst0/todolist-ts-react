@@ -2,11 +2,13 @@ import React from "react";
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 import { Todolist } from "./components/todolist";
 import { Createtickets } from "./components/createtickets";
+import { Detailtickets } from "./components/detailtickets";
 import { Headers } from "./components/header";
 
 export const Path = {
   todolist: "/",
   Createtickets: "/createtickets",
+  Detailtickets: "/detailtickets",
 };
 
 const App: React.FC = () => {
@@ -19,6 +21,11 @@ const App: React.FC = () => {
             exact
             path={Path.Createtickets}
             component={Createtickets}
+          ></Route>
+          <Route
+            exact
+            path={Path.Detailtickets}
+            component={Detailtickets}
           ></Route>
           <Redirect to={Path.todolist} />
         </Switch>
